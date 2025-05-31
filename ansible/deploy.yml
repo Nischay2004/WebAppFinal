@@ -3,13 +3,13 @@
   hosts: web
   become: yes
   tasks:
-  	- name: Copy WAR file to Tomcat
-  	  copy:
-  	  	src: "/var/snap/jenkins/4865/workspace/WebAppFinal/target/WebAppFinal.war"
-  	  	dest: "/opt/tomcat/webapps/WebAppFinal.war"
-  	  	remote_src: no
-  	
-  	- name: Restart Tomcat
-  	  systemd:
-  	  	name: tomcat
-  	  	state: restarted
+   - name: Copy WAR file to Tomcat
+     copy:
+       src: "/var/snap/jenkins/4865/workspace/WebAppFinal/target/WebAppFinal.war"
+       dest: "/opt/tomcat/webapps/WebAppFinal.war"
+       remote_src: no
+
+   - name: Restart tomcat
+     systemd:
+       name: tomcat
+       state: restarted
